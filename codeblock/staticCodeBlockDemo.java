@@ -1,4 +1,4 @@
-class staticCodeBlockDemoPerson {
+class StaticCodeBlockDemoPerson {
     public staticCodeBlockDemoPerson() {
         System.out.println("construct method of Person");
     }

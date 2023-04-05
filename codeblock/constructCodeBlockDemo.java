@@ -9,7 +9,7 @@ class Person {
     }
 }
 
-public class constructCodeBlockDemo {
+public class ConstructCodeBlockDemo {
     public static void main(String[] args) {
         new Person();
         new Person();
