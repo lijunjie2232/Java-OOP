@@ -7,5 +7,13 @@ public class StrInstDemo {
         System.out.println(strA == strB);// T
         System.out.println(strA == strC);// F
         System.out.println(strA == strD);// T
+        
+
+        String strAa = "baidu.com";
+        String strAb = "baidu" + '.' + "com";
+        String strAc = ".";
+        String strAd = "baidu" + strAc + "com";
+        System.out.println(strAa == strAb);// T
+        System.out.println(strAa == strAd);// F
     }
 }
