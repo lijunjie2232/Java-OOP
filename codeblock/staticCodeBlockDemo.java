@@ -1,7 +1,8 @@
 class StaticCodeBlockDemoPerson {
-    public staticCodeBlockDemoPerson() {
+    public StaticCodeBlockDemoPerson() {
         System.out.println("construct method of Person");
     }
+
     {
         System.out.println("construct code block of Person");
     }
@@ -10,10 +11,10 @@ class StaticCodeBlockDemoPerson {
     }
 }
 
-public class staticCodeBlockDemo {
+public class StaticCodeBlockDemo {
     public static void main(String[] args) {
-        new staticCodeBlockDemoPerson();
-        new staticCodeBlockDemoPerson();
-        new staticCodeBlockDemoPerson();
+        new StaticCodeBlockDemoPerson();
+        new StaticCodeBlockDemoPerson();
+        new StaticCodeBlockDemoPerson();
     }
 }
