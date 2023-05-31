@@ -23,6 +23,7 @@ class OuterClass {
                 InnerInnerClass iinc = new InnerInnerClass(){
                     private String msg = "INNER INNER ANONYMOUS MSG";
                     public void test(){
+                        System.out.println("INNERINNERANONY CLASS: " + this.msg);
                         System.out.println("INNERINNERANONY CLASS: " + OuterClass.this.msg);
                         System.out.println("INNERINNERANONY CLASS: " + InnerClass.this.msg);
                         System.out.println("INNERINNERANONY CLASS: " + InnerInnerClass.this.msg);

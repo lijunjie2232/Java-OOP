@@ -1,7 +1,5 @@
 package baselib;
 
-import javax.xml.transform.Source;
-
 class MyCloneableClass implements Cloneable {
     private String name;
     private int age;

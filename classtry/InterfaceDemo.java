@@ -18,8 +18,7 @@ public class InterfaceDemo {
                 throw new Exception("no such type of a person");
             }
         } catch (Exception e) {
-            // TODO: handle exception
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 }

@@ -2,7 +2,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 class MySyncThread implements Runnable {
-    private String threadName;
     private int tickets = 100;
 
     public MySyncThread() {

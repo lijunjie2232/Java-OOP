@@ -2,8 +2,6 @@ package baselib;
 
 import java.lang.ref.Cleaner;
 
-import javax.xml.transform.Source;
-
 class MyCleanableClass implements Runnable {
     public MyCleanableClass() {
         System.out.println("MyCleanableClass constructe");
@@ -25,7 +23,7 @@ class MyCleanableClassCleaning implements AutoCloseable {
 
     public MyCleanableClassCleaning() {
         this.mcc = new MyCleanableClass();
-        this.cleanable = this.cleaner.register(this, this.mcc);
+        this.cleanable = MyCleanableClassCleaning.cleaner.register(this, this.mcc);
     }
 
     public void close() throws Exception {

@@ -14,7 +14,7 @@ class B extends A {
         System.out.println("b_show");
     }
 
-    @SuppressWarnings({ "deprecation" })
+    // @SuppressWarnings({ "deprecation" })
     @Deprecated
     public void old() {
         System.out.println("b_old_func");
