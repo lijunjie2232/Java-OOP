@@ -2,20 +2,17 @@ package iotry;
 
 import java.io.*;
 
-public class IOStreamDemo {
+public class DecodeDemo {
     public static void main(String[] args) {
-        File file = new File("iotry/test.txt");
+        System.getProperties().list(System.out);
+        File file = new File("iotry/test_code.txt");
         if (!file.getParentFile().exists())
             file.getParentFile().mkdirs();
         try (OutputStream output = new FileOutputStream(file, false)) {
-            for (int i = 0; i < 10; i++) {
-                output.write("hello world!\r\n".getBytes());
-                output.write("hello world!\r\n".getBytes());
-            }
+            output.write("こんにちわ".getBytes("ISO8859-1"));
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(file.length());
         try (InputStream input = new FileInputStream(file)) {
             if (file.length() < 10240)
                 System.out.println(new String(input.readAllBytes()));
@@ -29,6 +26,5 @@ public class IOStreamDemo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
