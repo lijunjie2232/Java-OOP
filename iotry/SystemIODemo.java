@@ -19,10 +19,28 @@ public class SystemIODemo {
         try (FileInputStream input = new FileInputStream(new File("iotry/test_sysout.txt"))) {
             byte[] cache = new byte[64];
             for (int len = input.read(cache); len != -1; len = input.read(cache)) {
-                System.out.println(new String(cache, 0, len));
+                System.out.print(new String(cache, 0, len));
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally{
+            System.out.println();
         }
+        try (InputStream finput = new FileInputStream(new File("iotry/test_sysout.txt"))){
+            // InputStream input = System.in;
+            // byte[] cache = new byte[2];
+            // for (int len = input.read(cache); len != -1; len = input.read(cache)) {
+            //     System.out.print(new String(cache, 0, len));
+            // }
+        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        String msg = input.readLine();
+        System.out.println(msg);
+        input = new BufferedReader(new InputStreamReader(finput));
+        System.out.println(input.readLine());
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }
