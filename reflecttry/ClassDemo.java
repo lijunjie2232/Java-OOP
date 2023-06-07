@@ -9,5 +9,10 @@ public class ClassDemo {
         System.out.println(java.lang.Class.forName("java.lang.String"));
         Class<? extends String> strClass = java.lang.String.class;
         System.out.println(strClass.getDeclaredConstructor().newInstance().getClass());
+        System.out.println(strClass.getPackage().getName());
+        System.out.println(strClass.getSuperclass());
+        System.out.println("getInterfaces:");
+        for (Class<?> cls : strClass.getInterfaces())
+            System.out.println(cls);
     }
 }
