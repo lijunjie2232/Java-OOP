@@ -39,6 +39,7 @@ public class ClassDemo {
         System.out.println(mth_substring.invoke(strObj, 0, 15));
         System.out.println("****************** involk が　素晴らしい　です ...");
         Field strValue = Class.forName("java.lang.String").getDeclaredField("value");
+        System.out.println(strValue.getType());
         strValue.setAccessible(true);
         strValue.set(strObj, "jdk 9+ should add param: --add-opens java.base/java.lang=ALL-UNNAMED for setAccessible".getBytes());
         System.out.println(new String((byte[])strValue.get(strObj)));
