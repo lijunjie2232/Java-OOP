@@ -25,10 +25,10 @@ public class ClassDemo {
         for (Method m : strClass.getMethods())
             System.out.println(m);
         System.out.println("****************** getMethods numbers: " + strClass.getMethods().length);
-        
+
         System.out.println("****************** getDeclaredMethods:");
         for (Method m : strClass.getDeclaredMethods())
-            System.out.println(m);
+            System.out.println(m.getModifiers() + "  " + m.toString());
         System.out.println("****************** getDeclaredMethods numbers: " + strClass.getDeclaredMethods().length);
 
     }
