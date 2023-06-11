@@ -30,6 +30,17 @@ public class ClassDemo {
         for (Method m : strClass.getDeclaredMethods())
             System.out.println(m.getModifiers() + "  " + m.toString());
         System.out.println("****************** getDeclaredMethods numbers: " + strClass.getDeclaredMethods().length);
-
+        System.out.println("****************** involk が　素晴らしい　です:");
+        Object strObj = (Object) Class.forName("java.lang.String")
+                .getDeclaredConstructor(Class.forName("java.lang.String")).newInstance("involk が　素晴らしい　です:");
+        Method mth_toString = Class.forName("java.lang.String").getDeclaredMethod("toString");
+        System.out.println(mth_toString.invoke(strObj));
+        Method mth_substring = Class.forName("java.lang.String").getDeclaredMethod("substring", int.class, int.class);
+        System.out.println(mth_substring.invoke(strObj, 0, 15));
+        System.out.println("****************** involk が　素晴らしい　です ...");
+        Field strValue = Class.forName("java.lang.String").getDeclaredField("value");
+        strValue.setAccessible(true);
+        strValue.set(strObj, "jdk 9+ should add param: --add-opens java.base/java.lang=ALL-UNNAMED for setAccessible".getBytes());
+        System.out.println(new String((byte[])strValue.get(strObj)));
     }
 }
