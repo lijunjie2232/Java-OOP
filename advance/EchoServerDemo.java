@@ -1,7 +1,6 @@
 package advance;
 
 import java.net.*;
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.io.*;
@@ -12,6 +11,33 @@ public class EchoServerDemo {
         System.out.println("wait for client ...");
         Socket client = null;
         while ((client = server.accept()) != null) {
+            new Thread(new EchoServerSocketHandler(client)).start();
+        }
+        server.close();
+    }
+}
+
+class EchoServerSocketHandler implements Runnable {
+    private Socket client;
+
+    public EchoServerSocketHandler() {
+        client = null;
+    }
+
+    public EchoServerSocketHandler(Socket client) {
+        this.bind(client);
+    }
+
+    public void bind(Socket client) {
+        this.client = client;
+    }
+
+    @Override
+    public void run() {
+        try {
+            System.out.println(Thread.currentThread().getName() + " handling client message");
+            if (this.client == null)
+                throw new Exception("bind client first");
             Scanner scan = new Scanner(client.getInputStream());
             scan.useDelimiter("\n");
             PrintWriter out = new PrintWriter(client.getOutputStream());
@@ -33,9 +59,11 @@ public class EchoServerDemo {
             out.write("[ECHO]" + "*** echo end ***");
             out.close();
             scan.close();
-            client.close();
-            client = null;
+            this.client.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println(Thread.currentThread().getName() + " finished");
         }
-        server.close();
     }
 }

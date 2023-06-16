@@ -7,7 +7,7 @@ import java.io.*;
 public class EchoClientDemo {
     public static void main(String[] args) throws Exception{
         Socket client = new Socket("127.0.0.1", 10649);
-        String msg = "{\"msg\"=\"Hello Wolrd!\"}";
+        String msg = "{\"msg\": \"Hello Wolrd!\"}";
         PrintWriter out = new PrintWriter(client.getOutputStream());
         out.println(msg);
         out.println("--end");
