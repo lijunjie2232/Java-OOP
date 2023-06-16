@@ -50,8 +50,8 @@ class EchoServerSocketHandler implements Runnable {
                         flag = false;
                     else {
                         System.out.println(
-                                new SimpleDateFormat("yyyy-MM-dd hh:mm:ss ").format(new Date()) + "[LOG "
-                                        + Thread.currentThread().getName() + " ] " + nextMsg);
+                                new SimpleDateFormat("yyyy-MM-dd hh:mm:ss ").format(new Date()) + "[LOG@"
+                                        + Thread.currentThread().getName() + "] " + nextMsg);
                         out.println("[ECHO]" + nextMsg);
                         out.flush();
                     }
