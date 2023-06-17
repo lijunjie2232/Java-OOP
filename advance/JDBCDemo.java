@@ -16,7 +16,7 @@ public abstract class JDBCDemo {
         String sqlURL = "jdbc:mysql://" + sqlAddr + "/" + sqlDB;
         try (Connection conn = DriverManager.getConnection(sqlURL, sqlUser, sqlPasswd);) {
             Statement state = conn.createStatement();
-            ResultSet result = state.executeQuery("select * from test");
+            ResultSet result = state.executeQuery("select Id,Name from test");
             while (result.next()) {
                 System.out.println("---");
                 System.out.println("id: " + result.getInt("Id"));
