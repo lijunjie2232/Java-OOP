@@ -22,8 +22,11 @@ public abstract class JDBCDemo {
                 System.out.println("id: " + result.getInt("Id"));
                 System.out.println("name: " + result.getString("Name"));
             }
+            if (result != null)
+                result.close();
             System.out.println("********");
             System.out.println(state.executeUpdate("INSERT INTO test value (3, \"ljj\")"));
+            result = state.executeQuery("select * from test");
             while (result.next()) {
                 System.out.println("---");
                 System.out.println("id: " + result.getInt("Id"));
