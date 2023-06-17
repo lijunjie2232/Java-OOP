@@ -14,9 +14,9 @@ public abstract class JDBCDemo {
         String sqlPasswd = "root";
         String sqlDB = "test";
         String sqlURL = "jdbc:mysql://" + sqlAddr + "/" + sqlDB;
-        try (Connection conn = DriverManager.getConnection(sqlURL, sqlUser, sqlPasswd);
-                Statement state = conn.createStatement();
-                ResultSet result = state.executeQuery("select * from test");) {
+        try (Connection conn = DriverManager.getConnection(sqlURL, sqlUser, sqlPasswd);) {
+            Statement state = conn.createStatement();
+            ResultSet result = state.executeQuery("select * from test");
             while (result.next()) {
                 System.out.println("---");
                 System.out.println("id: " + result.getInt("Id"));
@@ -29,6 +29,10 @@ public abstract class JDBCDemo {
                 System.out.println("id: " + result.getInt("Id"));
                 System.out.println("name: " + result.getString("Name"));
             }
+            if (result != null)
+                result.close();
+            if (state != null)
+                state.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
