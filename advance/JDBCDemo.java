@@ -25,7 +25,10 @@ public abstract class JDBCDemo {
             if (result != null)
                 result.close();
             System.out.println("********");
-            System.out.println(state.executeUpdate("INSERT INTO test value (3, \"ljj\")"));
+            PreparedStatement pstate = conn.prepareStatement("INSERT INTO test value (?, ?)");
+            pstate.setInt(1, 5);
+            pstate.setString(2, "ljj");
+            System.out.println(pstate.executeUpdate());
             result = state.executeQuery("select * from test");
             while (result.next()) {
                 System.out.println("---");
