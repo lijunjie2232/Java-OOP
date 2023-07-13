@@ -2,7 +2,7 @@ package dataStruc;
 
 import java.util.*;
 import java.util.stream.*;
-import java.util.function.Predicate;
+// import java.util.function.Predicate;
 
 public class StreamDemo {
     public static void main(String[] args) {
@@ -14,8 +14,11 @@ public class StreamDemo {
         lang.add("Go");
         lang.add("Rust");
         Stream<String> stream = lang.stream();
-        Predicate<String> filter = (elem) -> elem.toLowerCase().startsWith("j");
-        List<String> result = stream.filter(filter).skip(1).limit(2).collect(Collectors.toList());
+        // Predicate<String> filter = (elem) -> elem.toLowerCase().startsWith("j");
+        // List<String> result =
+        // stream.filter(filter).skip(1).limit(2).collect(Collectors.toList());
+        List<String> result = stream.filter(elem -> elem.toLowerCase().startsWith("j")).skip(1).limit(2)
+                .collect(Collectors.toList());
         System.out.println(result.getClass());
         System.out.println(result.getClass().getSuperclass());
         System.out.println(result.getClass().getSuperclass().getSuperclass());
